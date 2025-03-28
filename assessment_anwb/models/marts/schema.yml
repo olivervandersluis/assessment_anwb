@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: top10_dagen_verbruik_verschil
+    description: >
+      Top 10 dagen met het grootste verschil tussen verwacht en werkelijk verbruik,
+      inclusief omzetberekening op basis van EPEX-prijzen.
+    columns:
+      - name: datum
+        description: Datum van het uurblok
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('dim_datum')
+              field: datum
+      - name: type_verschil
+        description: Richting van het verschil (ondervoorspelling of overvoorspelling)
+      - name: procentuele_afwijking_van_verwacht_verbruik
+        description: Afwijking van het dagelijks verwachtte verbruik en het werkelijke verbruik
+        tests:
+          - not_null         
+      - name: verwachte_omzet
+        description: Verwachte omzet op basis van voorspeld verbruik en prijs op die dag
+        tests:
+          - not_null        
+      - name: werkelijke_omzet
+        description: Werkelijke omzet op basis van werkelijk verbruik en prijs per dag
+        tests:
+          - not_null
+      - name: verschil_omzet
+        description: Financieel effect van het verschil tussen verwachting en werkelijkheid per dag
+        tests:
+          - not_null
+         
+          

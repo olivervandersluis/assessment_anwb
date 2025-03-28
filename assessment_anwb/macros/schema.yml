@@ -1,0 +1,45 @@
+version: 2
+
+macros:
+  - name: bereken_absoluut_verschil_verbruik
+    description: "{{ doc('bereken_absoluut_verschil_verbruik') }}"
+    arguments:
+      - name: verwacht
+        type: number
+        description: De omvang van het verwachtte verbruik in MW
+      - name: werkelijk
+        type: number
+        description: De omvang van het werkelijke verbruik in MW
+  - name: bereken_omzet
+    description: "{{ doc('bereken_omzet') }}"
+    arguments:
+      - name: hoeveelheid
+        type: number
+        description: Aantal / Volume / Hoeveelheid van het product dat wordt verkocht
+      - name: prijs
+        type: number
+        description: De prijs waarvoor het product verkocht wordt
+  - name: bereken_procentueel_verschil
+    description: "{{ doc('bereken_procentueel_verschil') }}"
+    arguments:
+      - name: begin_waarde
+        type: number
+        description: de aanvankelijke hoeveelheid
+      - name: eind_waarde
+        type: number
+        description: de uiteindelijke hoeveelheid 
+      - name: precisie
+        type: number
+        description: >
+          Het aantal decimalen achter de kommen, de nauwkeirigheid waarmee het percentage wordt uitgedrukt. 
+          Deze is optioneel, indien niets opgegeven dan is de precisie 1
+  - name: bereken_richting_verwachtingsverschil
+    description: "{{ doc('bereken_richting_verwachtingsverschil') }}"
+    arguments:
+      - name: verwacht_verbruik
+        type: number
+        description: De omvang van het verwachtte verbruik in MW
+      - name: werkelijk_verbruik
+        type: number
+        description: De omvang van het werkelijke verbruik in MW
+

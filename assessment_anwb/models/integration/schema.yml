@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: int_verbruik_per_dag
+    description: >
+      Verbruik per uur per dag, gecombineerd met EPEX-prijsinformatie.
+      Bevat zowel verwacht als werkelijk verbruik en het absolute verschil.
+    columns:
+      - name: datum
+        description: De dag waarop de verbruiks- en prijsgegevens betrekking hebben
+        tests:
+          - not_null
+      - name: uur
+        description: Het uur van de dag (0-23)
+      - name: verwacht
+        description: Totale verwachte load voor dit uur
+      - name: werkelijk
+        description: Totale gemeten load voor dit uur
+      - name: prijs
+        description: Elektriciteitsprijs per kWh
+      - name: absoluut_verschil_verwachting
+        description: Absoluut verschil tussen verwachte en werkelijke load (MW)
+        tests:
+          - not_null

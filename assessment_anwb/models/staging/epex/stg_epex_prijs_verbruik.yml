@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_epex_prijs_verbruik
+    description: >
+      Uurprijzen voor elektriciteit uit de EPEX-markt, gekoppeld op datum en uur
+      voor matching met verbruiksdata.
+    columns:
+      - name: datum
+        description: Datum waarop de prijs geldt
+      - name: uur
+        description: Uur waarop de prijs geldt
+      - name: product_type
+        description: Type EPEX-product (bijv. hourly, block)
+      - name: prijs
+        description: Elektriciteitsprijs per kWh in euro's. Alles wat geen getal is, wordt omgezet in NULL

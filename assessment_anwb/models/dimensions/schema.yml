@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: dim_datum
+    description: >
+      Datumdimensie met kalenderinformatie, gegenereerd via dbt_utils.date_spine. 
+      De eerste datum 1 januari 2021 en de kalender loopt tot 31 decemeber 2025
+    columns:
+      - name: datum
+        description: De unieke datum in het formaat YYYY-MM-DD
+        tests:
+          - not_null
+          - unique
+      - name: jaar
+        description: Het jaar van de datum (YYYY)
+      - name: maand
+        description: De maand van de datum (1-12)
+      - name: dag
+        description: De dag van de maand (1-31)
+      - name: weeknummer
+        description: Het (ISO) weeknummer in het jaar (1-53)
+      - name: dag_van_week
+        description: Dag van de week (1 = maandag, 7 = zondag)
+      - name: naam_dag_van_week
+        description: Naam van de weekdag (maadag, ..., zondag)
+      - name: is_weekend
+        description: Indicatie of de datum in het weekend valt (true/false)
+      - name: is_werkdag
+        description: Indicatie of de datum een werkdag is (true/false)
+      - name: kwartaal
+        description: Het kwartaal van het jaar (1-4)

@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: stg_entso_verbruik
+    description: >
+      Gestandaardiseerde load data van ENTSO-E (forecast en werkelijk verbruik),
+      met gesplitste periode en afgeleide datum en uur voor verdere aggregatie.
+    columns:
+      - name: periode_start_cet
+        description: Starttijd van het 15-min interval in CET
+      - name: periode_end_cet
+        description: Eindtijd van het 15-min interval in CET
+      - name: datum
+        description: Datum afgeleid uit periode_start_cet
+      - name: uur
+        description: Uur afgeleid uit periode_start_cet
+      - name: verwacht_verbruik
+        description: >
+          Voorspelde load voor het tijdvak (in MW), sommige regels hebben een '-' om een onbekende waarde aan te duiden
+          Deze worden omgezet naar NULL
+      - name: werkelijk_verbruik
+        description: >
+          Gemeten load voor het tijdvak (in MW), sommige regels hebben een '-' om een onbekende waarde aan te duiden
+          Deze worden omgezet naar NULL

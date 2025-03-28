@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: epex
+    schema: epex
+    tables:
+      - name: average_electricity_prices
+        description: >
+          EPEX: The European Power EXchange has pricing information per date/hour from 
+          2021-2025. It includes the price in EUR/KWh for electricity.

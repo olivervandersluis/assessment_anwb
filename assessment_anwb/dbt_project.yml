@@ -1,0 +1,48 @@
+
+name: 'assessment_anwb'
+version: '1.0.0'
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'assessment_anwb'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+docs-paths: ["docs"]
+asset-paths: ["assets"]
+
+clean-targets:       
+  - "target"
+  - "dbt_packages"
+
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+models:
+  assessment_anwb:
+    +materialized: table
+    +transient: true  # alle modellen zijn transient tenzij overschreven, timetravel en fail-safe zijn niet echt nodig in dit project
+    staging:
+      +schema: staging
+      +docs:
+        show: true
+        node_color: "#cd7f32"  
+
+    integration:
+      +schema: integration
+      +docs:
+        show: true
+        node_color: "#c0c0c0"
+    marts:
+      +schema: marts
+      +docs:
+        show: true
+        node_color: "#c99700"     
+    dimensions:
+      +schema: marts
+      +docs:
+        show: true
+        node_color: "#c99700" 

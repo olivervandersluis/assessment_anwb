@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: entso
+    schema: entso
+    tables:
+      - name: totalload_dayahaed_actual
+        description: >
+          ENTSO-E (European Network of Transmission System Operators for Electricity) 
+          has data on electricity load across Europe. You will find data from 2022-2025 in 
+          the Netherlands with both the actual load in MW per day on a 15min basis as 
+          well as the predicted load in MW for the next day (day ahead total load forecast)
